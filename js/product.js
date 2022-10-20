@@ -6,11 +6,20 @@ const product = {
 
 const displayProperty = document.querySelector(".container");
 
-let textUnderlined = "underline";
+let textUnderlined = "none";
 
+if (product.onSale) {
+    textUnderlined = "underline";
+}
+
+let typeOfPrice = typeof(product.price);
+
+if (typeOfPrice !== "number") {
+    product.price = "For you is for free!!!";
+}
 
 displayProperty.innerHTML = `<div>
 <h4 style="text-decoration:${textUnderlined }">${product.name}</h4>
-<p>${product.price}</p>
+<p>Price: ${product.price}</p>
 </div> `;
 
